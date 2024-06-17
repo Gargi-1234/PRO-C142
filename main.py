@@ -54,7 +54,7 @@ def unliked_article():
 # API to return most popular articles.
 @app.route("/popular-articles")
 def popular_articles():
-    popular_movie_data = []
+    popular_article_data = []
     for index,row in output.iterrows():
         _p = {
             "url" : row["url"],
@@ -63,9 +63,9 @@ def popular_articles():
             "language" : row["lang"] ,
             "total_events" : row["total_events"]
         }
-        popular_movie_data.append(_p)
+        popular_article_data.append(_p)
     return jsonify({
-        "data": popular_movie_data,
+        "data": popular_article_data,
         "status": "success"
     })
     # return "Top 20 articles using demographic filtering method" 
